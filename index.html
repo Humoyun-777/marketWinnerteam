@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <img style="width: 70px; border-radius: 50%;" src="img/image copy.png" alt="">
+                <div class="language-selector">
+                   <button class="lang-btn active" onclick="changeLanguage('uz')">O'Z</button>
+                   <button class="lang-btn" onclick="changeLanguage('ru')">РУ</button>
+                   <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+                </div>
+                <div class="header-right">
+                    <div class="cart-icon" onclick="openCart()">
+                        <img style="width: 50px;" src="img/image.png" alt="">
+                        <div class="cart-count" id="cartCount">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    id="searchInput"
+                    placeholder="Qidiruv..."
+                    onkeyup="filterProducts()"
+                >
+            </div>
+            <div class="categories">
+                <button class="category-btn active" onclick="filterByCategory('all')">Hammasi</button>
+                <button class="category-btn" onclick="filterByCategory('electronics')">Elektronika</button>
+                <button class="category-btn" onclick="filterByCategory('fashion')">Kiyim</button>
+                <button class="category-btn" onclick="filterByCategory('home')">Uy mollari</button>
+                <button class="category-btn" onclick="filterByCategory('books')">Kitoblar</button>
+                <button class="category-btn" onclick="filterByCategory('sports')">Sport</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="filters">
+            <button class="sort-btn" onclick="sortProducts('price')">💰 Narx bo'yicha</button>
+            <button class="sort-btn" onclick="sortProducts('rating')">⭐ Reyting bo'yicha</button>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+        <div class="no-products" id="noProducts" style="display: none;">
+            ❌ Mahsulot topilmadi
+        </div>
+    </main>
+
+    <!-- SAVAT MODAL -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><img style="width: 40px;" src="img/image.png" alt=""> Mening Savatim</h2>
+                <button class="close-btn" onclick="closeCart()">&times;</button>
+            </div>
+            <div id="cartItems"></div>
+            <div id="cartSummary"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 BOZOR Market. Barcha huquqlar himoyalangan. | Telefon: +998 90 123 45 67</p>
+    </footer>
+<script src="sfaf.js"></script>
+</body>
+</html>
